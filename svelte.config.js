@@ -27,7 +27,7 @@ const config = {
 		}),
 
 		paths: {
-			base: dev ? "" : "/ProtestInjunction"
+			base: dev ? "" : "/ProtestInjunction.github.io"
 		},
 
 		prerender: {
