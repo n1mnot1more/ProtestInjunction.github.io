@@ -1,4 +1,4 @@
-import adapterStatic from "@sveltejs/adapter-static";
+import adapter from "@sveltejs/adapter-static";
 import { sveltePreprocess } from "svelte-preprocess";
 import autoprefixer from "autoprefixer";
 
@@ -8,13 +8,29 @@ const preprocess = sveltePreprocess({
 	}
 });
 
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	compilerOptions: {
 		runes: true
 	},
+
 	preprocess,
+
 	kit: {
-		adapter: adapterStatic({ strict: false })
+		adapter: adapter({
+			fallback: "404.html",
+			strict: false
+		}),
+
+		paths: {
+			base: process.argv.includes("dev")
+				? ""
+				: "/ProtestInjunction"
+		},
+
+		prerender: {
+			handleHttpError: "warn"
+		}
 	}
 };
 
