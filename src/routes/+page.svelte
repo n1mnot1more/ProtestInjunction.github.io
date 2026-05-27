@@ -6,7 +6,7 @@
 	import copy from "$data/copy.json";
 	import version from "$utils/version.js";
 
-	let { data } = $props();
+	const props = $props();
 
 	version();
 
@@ -18,8 +18,9 @@
 	];
 
 	const { title, description, url, keywords } = copy;
+
 	setContext("copy", copy);
-	setContext("data", data);
+	setContext("data", props.data);
 </script>
 
 <Meta {title} {description} {url} {preloadFont} {keywords} />
