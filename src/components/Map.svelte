@@ -1,4 +1,5 @@
 <script>
+import { base } from "$app/paths";
   import * as d3 from "d3";
   import * as topojson from "topojson-client";
   import { onMount } from "svelte";
@@ -214,16 +215,15 @@ height = mobile
   : window.innerHeight - legendHeight;
     dpi = window.devicePixelRatio || 1;
 
-    const topo = await d3.json("/wards.topo.json");
-    wards = topojson.feature(topo, topo.objects[Object.keys(topo.objects)[0]]);
-    console.log("Wards loaded:", wards.features.length, "sample props:", wards.features[0]?.properties);
 
-    const ladTopo = await d3.json("/lads.topo.json");
-    lads = topojson.feature(ladTopo, ladTopo.objects[Object.keys(ladTopo.objects)[0]]);
-    console.log("LADs loaded:", lads.features.length, "sample props:", lads.features[0]?.properties);
+const topo = await d3.json(`${base}/wards.topo.json`);
+wards = topojson.feature(topo, topo.objects[Object.keys(topo.objects)[0]]);
 
-    const engwalTopo = await d3.json("/engwal.topo.json");
-    engwal = topojson.feature(engwalTopo, engwalTopo.objects[Object.keys(engwalTopo.objects)[0]]);
+const ladTopo = await d3.json(`${base}/lads.topo.json`);
+lads = topojson.feature(ladTopo, ladTopo.objects[Object.keys(ladTopo.objects)[0]]);
+
+const engwalTopo = await d3.json(`${base}/engwal.topo.json`);
+engwal = topojson.feature(engwalTopo, engwalTopo.objects[Object.keys(engwalTopo.objects)[0]]);
 
     const projection = d3
       .geoIdentity()
