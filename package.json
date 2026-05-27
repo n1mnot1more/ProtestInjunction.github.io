@@ -6,6 +6,8 @@
 		"style": "node tasks/style-dictionary.js",
 		"dev": "vite dev",
 		"build": "vite build",
+"deploy": "npm run build && gh-pages -d build",
+
 		"preview": "vite preview",
 		"lint": "prettier --check --plugin-search-dir=. .",
 		"format": "prettier --write --plugin-search-dir=. ."
@@ -21,6 +23,7 @@
 		"autoprefixer": "^10.4.27",
 		"bits-ui": "^2.16.3",
 		"d3": "^7.9.0",
+		"gh-pages": "^6.3.0",
 		"lodash.debounce": "^4.0.8",
 		"postcss": "^8.5.8",
 		"prettier": "^3.8.1",
