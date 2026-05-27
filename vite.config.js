@@ -10,7 +10,7 @@ const { version } = JSON.parse(readFileSync("package.json", "utf8"));
 const timestamp = timeFormat("%Y-%m-%d-%H:%M")(new Date());
 
 export default defineConfig({
-	base: '/ProtestInjunction.github.io/',  // <- Add this line
+	base: '/ProtestInjunction.github.io',  // <- Add this line
 	define: {
 		__VERSION__: JSON.stringify(version),
 		__TIMESTAMP__: JSON.stringify(timestamp)
