@@ -2,9 +2,11 @@ import adapter from "@sveltejs/adapter-static";
 import { sveltePreprocess } from "svelte-preprocess";
 import autoprefixer from "autoprefixer";
 
+const dev = process.argv.includes("dev");
+
 const preprocess = sveltePreprocess({
 	postcss: {
-		plugins: [autoprefixer]
+		plugins: [autoprefixer()]
 	}
 });
 
@@ -18,15 +20,17 @@ const config = {
 
 	kit: {
 		adapter: adapter({
-			fallback: "404.html",
+			pages: "docs",
+			assets: "docs",
+			fallback: "index.html",
 			strict: false
 		}),
 
 		paths: {
-			base: process.argv.includes("dev")
-				? ""
-				: "/ProtestInjunction"
+			base: dev ? "" : "/ProtestInjunction"
 		},
+
+		trailingSlash: "always",
 
 		prerender: {
 			handleHttpError: "warn"
