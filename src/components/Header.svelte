@@ -17,23 +17,17 @@
 		const el = document.getElementById(id);
 		if (!el) return;
 
-		el.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		});
+		el.scrollIntoView({ behavior: "smooth", block: "start" });
 	}
 </script>
 
 <header class="header">
-
-	<!-- WORDMARK -->
 	<div class="wordmark">
 		<a href="{base}/" aria-label="home">
 			{@html wordmark}
 		</a>
 	</div>
 
-	<!-- NAV -->
 	<nav class="nav">
 		{#each nav as item}
 			<button
@@ -44,7 +38,6 @@
 			</button>
 		{/each}
 	</nav>
-
 </header>
 
 <style>
