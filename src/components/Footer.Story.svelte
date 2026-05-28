@@ -1,10 +1,11 @@
 <script>
 	import playSvg from "$svg/play.svg";
+import { base } from "$app/paths";
+
 	let { id, href, slug, short, tease, month, bgColor, resource, footer } =
 		$props();
 
 	// custom to starter
-	const base = "https://pudding.cool";
 
 	const youtube = href.includes("youtube") || href.includes("youtu.be");
 	const dir = resource ? "resources" : "screenshots";

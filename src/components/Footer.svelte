@@ -6,7 +6,7 @@
 	import Story from "$components/Footer.Story.svelte";
 
 	// custom to starter
-	const base = "https://pudding.cool";
+import { base } from "$app/paths";
 	let stories = $state([]);
 	let storyCount = $state(0);
 
@@ -48,8 +48,11 @@
 				...d,
 				tease: d.hed,
 				slug: d.image,
-				href: d.url.startsWith("http") ? d.url : `${base}/${d.url}`
-			}));
+href={
+	d.url.startsWith("http")
+		? d.url
+		: `${base}/${d.url.replace(/^\//, "")}`
+}			}));
 
 			storyCount = filtered.length;
 

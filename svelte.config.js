@@ -17,18 +17,18 @@ const config = {
 
 	preprocess,
 
-	kit: {
-		adapter: adapterStatic({
-			pages: "docs",
-			assets: "docs",
-			fallback: "index.html",
-			strict: false
-		}),
+kit: {
+	adapter: adapterStatic({
+		pages: "docs",
+		assets: "docs",
+		fallback: "index.html",
+		strict: false
+	}),
 
-		paths: {
-			base: dev ? "" : "/ProtestInjunction"
-		}
+	paths: {
+		base: dev ? "" : "/ProtestInjunction"
 	}
+}
 };
 
 export default config;

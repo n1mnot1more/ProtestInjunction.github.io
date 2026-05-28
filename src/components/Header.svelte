@@ -1,4 +1,5 @@
 <script>
+	import { base } from "$app/paths";
 	import wordmark from "$svg/Not1More.svg";
 
 	const nav = [
@@ -14,7 +15,6 @@
 		active = id;
 
 		const el = document.getElementById(id);
-
 		if (!el) return;
 
 		el.scrollIntoView({
@@ -28,7 +28,7 @@
 
 	<!-- WORDMARK -->
 	<div class="wordmark">
-		<a href="/" aria-label="home">
+		<a href="{base}/" aria-label="home">
 			{@html wordmark}
 		</a>
 	</div>
@@ -82,9 +82,7 @@
 /* BUTTON BASE */
 .nav button {
 	background: rgba(255, 255, 255, 0.03);
-
 	border: 1px solid rgba(255, 255, 255, 0.12);
-
 	color: rgba(255, 255, 255, 0.75);
 
 	font-size: 12px;
@@ -111,11 +109,10 @@
 	transform: translateY(-1px);
 }
 
-/* ACTIVE STATE (PUDDING STYLE EMPHASIS) */
+/* ACTIVE STATE */
 .nav button.selected {
 	background: rgba(255, 255, 255, 0.10);
 	border-color: rgba(252, 253, 79, 0.55);
-
 	color: #fcfd4f;
 
 	box-shadow:
@@ -123,7 +120,7 @@
 		0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* MOBILE TIGHTER */
+/* MOBILE */
 @media (max-width: 900px) {
 	.nav {
 		gap: 6px;
