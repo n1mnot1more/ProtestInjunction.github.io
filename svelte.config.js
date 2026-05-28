@@ -26,7 +26,8 @@ kit: {
 	}),
 
 	paths: {
-base: dev ? "" : "/ProtestInjunction.github.io"
+base: dev ? "" : "/ProtestInjunction"
+
 	}
 }
 };
